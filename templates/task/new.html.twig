@@ -1,0 +1,26 @@
+{# templates/task/new.html.twig #}
+
+{# ... #}
+
+{{ form_start(form) }}
+    {# render the task's only field: description #}
+    {{ form_row(form.description) }}
+
+    <h3>Tags</h3>
+    <ul class="tags" data-prototype="{{ form_widget(form.tags.vars.prototype)|e('html_attr') }}">
+        {# iterate over each existing tag and render its only field: name #}
+        {% for tag in form.tags %}
+            <li>{{ form_row(tag.name) }}</li>
+        {% endfor %}
+    </ul>
+{{ form_end(form) }}
+
+<ul class="tags" data-prototype="&lt;div&gt;&lt;label class=&quot; required&quot;&gt;__name__&lt;/label&gt;&lt;div id=&quot;task_tags___name__&quot;&gt;&lt;div&gt;&lt;label for=&quot;task_tags___name___name&quot; class=&quot; required&quot;&gt;Name&lt;/label&gt;&lt;input type=&quot;text&quot; id=&quot;task_tags___name___name&quot; name=&quot;task[tags][__name__][name]&quot; required=&quot;required&quot; maxlength=&quot;255&quot; /&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;">
+</ul>
+
+{% block javascripts %}
+<a href="{{ asset('jquery.js') }}"></a>
+<a href="{{ asset('task.js') }}">Add a tag</a>
+<button type="button" class="boutonAjout" onclick="addTagForm()">+ Ajouter une designation</button>
+{% endblock %}
+{# ... #}

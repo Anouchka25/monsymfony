@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une facture{% endblock %}
+
+{% block body %}
+<section>
+{{ form_start(form) }}
+<fieldset>
+  <legend>Infos de base *</legend>
+{{ form_row(form.num, { 'label': 'Numéro de la facture' }) }}
+{{ form_row(form.numtva, { 'label': 'Numéro de la TVA' }) }}
+{{ form_row(form.datefacture, { 'label': 'Date de la facture' }) }}
+{{ form_row(form.facturede, { 'label': 'Infos de votre entreprise ' }) }}
+{{ form_row(form.client, { 'label': 'Infos de votre client' }) }}
+{{ form_row(form.conditions, { 'label': 'Conditions et moyens de paiement' }) }}
+</fieldset>
+<br/><br/>
+<fieldset>
+<legend>Contenu de la facture *</legend>
+<ul class="prestation">
+        {# iterate over each existing tag and render its only field: name #}
+        {% for presta in form.prestation %}
+            <li>{{ form_row(presta.designation) }}</li>
+            <li>{{ form_row(presta.quantite) }}</li>
+            <li>{{ form_row(presta.prixht) }}</li>
+            <li>{{ form_row(presta.taxe) }}</li>
+        {% endfor %}
+</ul>
+
+{{ form_row(form.button) }}
+</fieldset>
+
+<button type="submit" class ="btn-primary btn-block">Créer une facture</button>
+{{ form_end(form) }}
+</section>
+{% endblock %}

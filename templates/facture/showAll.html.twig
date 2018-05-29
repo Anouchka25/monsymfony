@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afficher une facture{% endblock %}
+
+{% block body %}
+<section>
+{% for facture in factures %}
+{{ facture.num }}
+{{ facture.numtva }}
+{% endfor %}
+</section>
+{% endblock %}

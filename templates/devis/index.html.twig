@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un devis{% endblock %}
+
+{% block body %}
+<section>
+{{ form_start(form) }}
+<fieldset>
+  <legend>Infos de base *</legend>
+{{ form_row(form.num) }}
+{{ form_row(form.numtva) }}
+{{ form_row(form.datedevis) }}
+{{ form_row(form.devisde) }}
+{{ form_row(form.client) }}
+{{ form_row(form.conditions) }}
+</fieldset>
+<br/><br/>
+<fieldset>
+<legend>Contenu de la devis *</legend>
+{{ form_row(form.designation) }}
+{{ form_row(form.quantite) }}
+{{ form_row(form.prixht) }}
+{{ form_row(form.taxe) }}
+</fieldset>
+
+<button type="submit" class ="btn-primary btn-block">Créer un devis</button>
+{{ form_end(form) }}
+</section>
+{% endblock %}
