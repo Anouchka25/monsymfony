@@ -37,7 +37,7 @@
                         <a class="nav-link" href="{{path('facture')}}">Créer une facture</a>
                     </li>
                     <li class="nav-item {% if mainNavHome is defined %}active{% endif %}">
-                        <a class="nav-link" href="{{path('devis')}}">Créer un devis</a>
+                        <a class="nav-link" href="{{path('app_homepage_index')}}">Créer un devis</a>
                     </li>
                     {% if is_granted('ROLE_USER') %}
                         <li class="nav-item {% if mainNavMember is defined %}active{% endif %}">

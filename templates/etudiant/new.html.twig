@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Etudiant{% endblock %}
+
+{% block body %}
+    <h1>Create new Etudiant</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.nom) }}
+        {{ form_row(form.prenom) }}
+        {{ form_row(form.age) }}
+
+        <h3>Formations</h3>
+        <ul class="formations">
+            {# iterate over each existing formation and render its only field: name #}
+            {% for formation in form.formations %}
+                <li>{{ form_row(formation.name) }}</li>
+            {% endfor %}
+        </ul>
+        <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+
+    <a href="{{ path('etudiant_index') }}">back to list</a>
+{% endblock %}

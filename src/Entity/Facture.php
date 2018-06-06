@@ -79,24 +79,24 @@ class Facture
         return $this->id;
     }
 
-    public function getNum(): ?string
+    public function getNum()
     {
         return $this->num;
     }
 
-    public function setNum(string $num): self
+    public function setNum(string $num)
     {
         $this->num = $num;
 
         return $this;
     }
 
-    public function getNumtva(): ?string
+    public function getNumtva()
     {
         return $this->numtva;
     }
 
-    public function setNumtva(string $numtva): self
+    public function setNumtva(string $numtva)
     {
         $this->numtva = $numtva;
 
@@ -108,91 +108,94 @@ class Facture
         return $this->datefacture;
     }
 
-    public function setDatefacture(\DateTimeInterface $datefacture): self
+    public function setDatefacture(\DateTimeInterface $datefacture)
     {
         $this->datefacture = $datefacture;
 
         return $this;
     }
 
-    public function getFacturede(): ?string
+    public function getFacturede()
     {
         return $this->facturede;
     }
 
-    public function setFacturede(string $facturede): self
+    public function setFacturede(string $facturede)
     {
         $this->facturede = $facturede;
 
         return $this;
     }
 
-    public function getClient(): ?string
+    public function getClient()
     {
         return $this->client;
     }
 
-    public function setClient(string $client): self
+    public function setClient(string $client)
     {
         $this->client = $client;
 
         return $this;
     }
 
-    public function getConditions(): ?string
+    public function getConditions()
     {
         return $this->conditions;
     }
 
-    public function setConditions(string $conditions): self
+    public function setConditions(string $conditions)
     {
         $this->conditions = $conditions;
 
         return $this;
     }
 
-    // public function getUser(): ?string
+    // public function getUser()
     // {
     //     return $this->user;
     // }
     //
-    // public function setUser(string $user): self
+    // public function setUser(string $user)
     // {
     //     $this->user = $user;
     //
     //     return $this;
     // }
 
-    // public function getLogo(): ?string
+    // public function getLogo()
     // {
     //     return $this->logo;
     // }
     //
-    // public function setLogo(string $logo): self
+    // public function setLogo(string $logo)
     // {
     //     $this->logo = $logo;
     //
     //     return $this;
     // }
 
-    public function getPrestations(): ?string
+    public function getPrestations()
     {
         return $this->prestations;
     }
 
-    public function setPrestations(Collection $prestations): self
-    {
-        $this->prestations = $prestations;
-
-        return $this;
-    }
+    // public function setPrestations(Collection $prestations)
+    // {
+    //     $this->prestations = $prestations;
+    //
+    //     return $this;
+    // }
 
     public function addPrestation(Prestation $prestation)
     {
-        if ( ! $this->prestations->contains($prestation) ) {
             $this->prestations->add($prestation);
-        }
 
-        return $this->prestations;
+    }
+
+    public function removePrestation(Prestation $prestation)
+    {
+            $this->prestations->removeElement($prestation);
+
     }
 }

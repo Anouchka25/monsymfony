@@ -26,6 +26,8 @@ class FactureType extends AbstractType
             'entry_type' => PrestationType::class,
             'entry_options' => array('label' => false),
             'allow_add' => true,
+            'by_reference' => false,
+            'allow_delete' => true,
         ));
     }
 
@@ -34,5 +36,10 @@ class FactureType extends AbstractType
         $resolver->setDefaults([
             'data_class' => Facture::class,
         ]);
+    }
+
+    public function getName()
+    {
+        return 'facture';
     }
 }

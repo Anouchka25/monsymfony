@@ -19,22 +19,22 @@ class Prestation
     /**
      * @ORM\Column(type="string", length=255)
      */
-    protected $designation;
+    public $designation;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
      */
-    protected $quantite;
+    public $quantite;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
      */
-    protected $prixht;
+    public $prixht;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=0)
      */
-    protected $taxe;
+    public $taxe;
 
     // /**
     //  * @ORM\ManyToOne(targetEntity="Facture", inversedBy="prestations")
@@ -47,24 +47,24 @@ class Prestation
         return $this->id;
     }
 
-    public function getDesignation(): ?string
+    public function getDesignation()
     {
         return $this->designation;
     }
 
-    public function setDesignation(string $designation): self
+    public function setDesignation(string $designation)
     {
         $this->designation = $designation;
 
         return $this;
     }
 
-    public function getQuantite(): ?string
+    public function getQuantite()
     {
         return $this->quantite;
     }
 
-    public function setQuantite(string $quantite): self
+    public function setQuantite(string $quantite)
     {
         $this->quantite = $quantite;
 
@@ -76,7 +76,7 @@ class Prestation
         return $this->prixht;
     }
 
-    public function setPrixht($prixht): self
+    public function setPrixht($prixht)
     {
         $this->prixht = $prixht;
 
@@ -88,7 +88,7 @@ class Prestation
         return $this->taxe;
     }
 
-    public function setTaxe($taxe): self
+    public function setTaxe($taxe)
     {
         $this->taxe = $taxe;
 

@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 //use App\Service\FileUploader;
 
 class FactureController extends Controller
@@ -20,6 +21,12 @@ class FactureController extends Controller
     public function index(Request $request)
     {
          $facture = new Facture();
+         $prestation1=new Prestation();
+         $prestation1->designation='desigation1';
+         $prestation1->prixht=500;
+         $prestation1->quantite=6;
+         $prestation1->taxe=20;
+         $facture->getPrestations()->add($prestation1);
         // $facture->setNum('num1');
         // $facture->setNumtva('numtva1');
         // $facture->setDatefacture('12/05/2018');
@@ -52,7 +59,7 @@ class FactureController extends Controller
 
           $this->addFlash('success', 'Votre facture à bien été enregistrée.');
 
-          return $this->redirect($this->generateUrl('app_facture_list'));
+          //return $this->redirect($this->generateUrl('app_facture_list'));
         }
         return $this->render('facture/index.html.twig', [
             'form'=>$form->createView(),'mainNavRegistration' => true, 'title' => 'Créer une facture'
